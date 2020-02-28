@@ -1,0 +1,27 @@
+<!-- AVATAR PROFIL-->
+<app-avatarProfil [currentAvatar]="currentAvatar" [loadingProcess]="loadingAvatar" (onUpdate)=openFormAvatar()>
+</app-avatarProfil>
+
+<app-avatar-form *ngIf="formAvatarOpen" [currentAvatar]="currentAvatar" [newAvatarForm]="newAvatarForm"
+    (onCancel)=closeFormAvatar()></app-avatar-form>
+
+<!-- ARTICLE-->
+<div class="flex-container" *ngIf="!loadingArticle && currentAvatar.id">
+
+    <div *ngFor="let article of listArticles">
+        <app-article *ngIf="article.active" [currentArticle]="article"
+            (onSubmitForm)="onSubmitArticle($event, 'editBio')"></app-article>
+    </div>
+
+
+    <div *ngIf="listArticles.length==0 && !loadingArticle">
+        <mat-card-actions class="whiteFont">
+            <button mat-button (click)="createBio()">Ajouter une Bio</button>
+        </mat-card-actions>
+    </div>
+
+    <app-article *ngIf="editAction=='createBio'" editAction="Création Bio" [currentArticle]="article"
+        actionForm="create-article" (onSubmitForm)="onSubmitArticle($event, 'addBio')" (onCancel)=closeFormArticle()>
+    </app-article>
+
+</div>

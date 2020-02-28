@@ -1,0 +1,32 @@
+﻿<div class="card m-3">
+    <h5 class="card-header">Login</h5>
+    <div class="card-body">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email">
+                    <mat-error *ngIf="errorHandling('email', 'required')">Email is required</mat-error>
+                    <mat-error *ngIf="errorHandling('email', 'email')">Email not valid</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput type="password" placeholder="Mot de passe" formControlName="password">
+                    <mat-error *ngIf="errorHandling('password', 'required')">Password is required</mat-error>
+                    <mat-error *ngIf="errorHandling('password', 'minlength')">Password must be at least 8 characters
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <!-- Submit -->
+            <div class="button-wrapper">
+                <button mat-flat-button color="primary">Submit</button>
+                <a (click)="goToRegister()" class="btn btn-link">Register</a>
+            </div>
+
+        </form>
+    </div>
+</div>

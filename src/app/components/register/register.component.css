@@ -1,0 +1,7 @@
+mat-form-field, button{
+    width: 100%;
+}
+
+.padded{
+    margin: 100px !important;
+}

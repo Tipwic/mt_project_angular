@@ -1,0 +1,33 @@
+<div class="disbleScreen"></div>
+ <div class="card m-3" [@slideInOutAnimation]>
+
+     <h5 class="card-header titleForm" *ngIf="actionForm == 'create'">Création avatar</h5>
+     <h5 class="card-header titleForm" *ngIf="actionForm != 'create'">Modification avatar</h5>
+     <div class="card-body">
+        
+        <app-crop-image 
+        [originalImage]="originalImage"
+        (imageOnChange)=changeImage($event)></app-crop-image>
+
+         <form [formGroup]="avatarForm">
+             <div class="form-group">
+                 <mat-form-field>
+                     <input matInput placeholder="Nom" formControlName="name">
+                     <mat-error *ngIf="errorHandling('name', 'required')">Name is required</mat-error>
+                 </mat-form-field>
+             </div>
+             <div class="form-group">
+                <mat-form-field>
+                    <input matInput placeholder="Surnom" formControlName="nick_name">
+                    <mat-error *ngIf="errorHandling('nick_name', 'required')">Nick_name is required</mat-error>
+                </mat-form-field>
+            </div>
+ 
+             <!-- Submit -->
+             <div class="button-wrapper">
+                 <button mat-flat-button color="primary" (click)="onSubmit()">Submit</button>
+                 <button mat-flat-button color="warning"(click)="CancelForm()">Cancel</button>
+             </div>       
+         </form>
+     </div>
+ </div>

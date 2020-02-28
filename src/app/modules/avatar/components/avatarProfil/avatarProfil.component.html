@@ -1,0 +1,28 @@
+
+<p *ngIf="loadingProcess" [@flyInOutAnimation]>loading ...</p>
+
+<p *ngIf="!loadingProcess && !currentAvatar" [@flyInOutAnimation]>NO profil avatar !</p>
+
+<mat-card *ngIf="!loadingProcess && currentAvatar" [@flyInOutAnimation]>
+    <mat-card-header>
+       <div mat-card-avatar class = "tp-header-image"></div>
+       <mat-card-title>Avatar profil</mat-card-title>
+    </mat-card-header>
+   <mat-card-content>
+     <mat-list role="list">
+         <mat-list-item role="listitem">
+           <img class="portraitImg" matListAvatar  [src]="currentAvatar.portrait_url" alt = "avatar default">
+           <h1 matLine> {{currentAvatar.name}} </h1>
+           <p matLine>
+             <span> sujet </span>
+             <span class="demo-2"> -- </span>
+           </p>
+         </mat-list-item>
+       </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+       <button mat-button (click)="updateAvatar()">modifier</button>
+       <button mat-button (click)="deleteAvatar()">supprimer</button>
+    </mat-card-actions>
+ </mat-card>
+ 

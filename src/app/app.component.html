@@ -1,0 +1,21 @@
+<mat-sidenav-container>
+    <app-header [currentUser]="currentUser" (sidenavToggle)="sidenav.toggle()"></app-header>
+    <alert></alert>
+
+
+    <div *ngIf="loading">
+        <mat-progress-spinner>
+            <span class="sr-only">Loading...</span>
+        </mat-progress-spinner>
+    </div>
+
+    <mat-sidenav #sidenav role="navigation">
+        <app-sidenav 
+        (btnCreateAvatarClicked)="sidenav.close()"
+        (sidenavClose)="sidenav.close()"></app-sidenav>
+    </mat-sidenav>
+
+    <main [@routerTransition]="getState(o)">
+        <router-outlet #o="outlet"></router-outlet>
+    </main>
+</mat-sidenav-container>

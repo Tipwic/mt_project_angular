@@ -1,0 +1,40 @@
+<mat-toolbar>
+    <div fxHide.gt-xs>
+        <button mat-icon-button *ngIf="currentUser && currentUser.id" (click)="onToggleSidenav()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <button mat-icon-button *ngIf="!(currentUser && currentUser.id)" routerLink="home">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    <mat-nav-list class="container" *ngIf="currentUser && currentUser.id">
+        <a mat-list-item *ngFor="let menu of currMenu" 
+         [@flyInOverAnimation]
+            [ngStyle]="{'width': itemMenuWidth, 'background-image': currSubMenu === menu.routerLink ? 'linear-gradient(to right, rgba(124, 133, 253,1), rgba(124, 133, 253,0))' : '' }"
+            routerLink="{{currModule}}/{{menu.routerLink}}">
+            <span 
+            [@flyInOverAnimation]
+            *ngIf="menu.appear">{{menu.lib}}</span></a>
+    </mat-nav-list>
+
+    <div fxHide.gt-xs class="rightBtn">
+        <button mat-icon-button [matMenuTriggerFor]="menuSettings">
+            <mat-icon>settings</mat-icon>
+        </button>
+
+        <mat-menu class="menu-overflow-hidden" #menuSettings="matMenu">
+
+            <div *ngIf="!(currentUser && currentUser.id)">
+                <button mat-menu-item (click)="openModal('login')">Login</button>
+                <button mat-menu-item routerLink="home/register">Register</button>
+            </div>
+
+            <div *ngIf="(currentUser && currentUser.id)">
+                <button mat-menu-item (click)="logout()">Logout</button>
+                <button mat-menu-item (click)="logout()">Account</button>
+                <button mat-menu-item (click)="logout()">Settings</button>
+            </div>
+
+        </mat-menu>
+    </div>
+</mat-toolbar>

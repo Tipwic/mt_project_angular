@@ -1,0 +1,43 @@
+
+mat-toolbar {
+    background: black;
+}
+
+a, mat-icon {
+    text-decoration: none;
+    color: white !important;
+}
+ 
+mat-icon:hover, a:hover, a:active{
+    color: lightgray;
+}
+
+.selectedMenu{
+    background-image: linear-gradient(rgba(124, 133, 253,1), rgba(124, 133, 253,0));
+}
+ 
+.navigation-items{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rightBtn {
+    position: absolute;
+    right: 20px;
+}
+
+.container {
+    padding: 0;
+    height: -webkit-fill-available;
+    display: flex; /* or inline-flex */
+    flex-flow: row wrap;
+    /* This aligns items to the end line on main-axis */
+    justify-content: flex-end;
+    width: calc(100% - 90px);
+  }
+
+ 
+.container > a {
+    height: -webkit-fill-available;
+}
