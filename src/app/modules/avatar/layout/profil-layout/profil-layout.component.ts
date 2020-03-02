@@ -112,7 +112,7 @@ export class ProfilLayoutComponent implements OnInit {
             this.listArticles = [];
             for (let article of data.articles) {
               for (let i = 0; i < 6; i++) {
-                this.listArticles.push({ title: article.title, content: article.content })
+                this.listArticles.push({ title: article.title, content: article.content, id: article.id })
                 activateArticle(article, i)
               }
             }
@@ -136,6 +136,7 @@ export class ProfilLayoutComponent implements OnInit {
 
   public closeFormArticle(){
     this.editAction = null;
+    this.loadingArticle = false;
   }
 
   onSubmitArticle(event, action) {
@@ -143,18 +144,19 @@ export class ProfilLayoutComponent implements OnInit {
     switch (action) {
 
       case 'addBio': {
-        this.currentAvatar.biography.unshift(event);
+        event.active = true;
+        this.listArticles.unshift(event);
         break;
       }
 
       case 'editBio': {
-        let index = this.currentAvatar.biography.findIndex(article => article.id === event.id)
-        this.currentAvatar.biography.splice(index, 1, event);
+        let index = this.listArticles.findIndex(article => article.id === event.id)
+        this.listArticles.splice(index, 1, event);
         break;
       }
 
       case 'deleteBio': {
-        this.currentAvatar.biography = this.currentAvatar.biography.filter((article) => article.id != event.id);
+        this.listArticles = this.listArticles.filter((article) => article.id != event.id);
         break;
       }
     }

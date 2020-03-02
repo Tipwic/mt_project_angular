@@ -18,6 +18,7 @@ import { AvatarProfilComponent, CharSheetComponent,
 import { InventoryLayoutComponent, ScheduleLayoutComponent, CharSheetLayoutComponent,
   ProfilLayoutComponent } from './layout/index'
 
+  import { ChartsModule } from 'ng2-charts';
 @NgModule({
   declarations: [
     AvatarProfilComponent,
@@ -38,7 +39,9 @@ import { InventoryLayoutComponent, ScheduleLayoutComponent, CharSheetLayoutCompo
     AngularMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    ImageCropperModule
+    ImageCropperModule,
+    ChartsModule
+
   ],
   providers: [
     AvatarProfilService

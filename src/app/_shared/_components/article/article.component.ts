@@ -2,7 +2,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ArticleService } from './article.service';
 import { AlertService } from '../../../_shared/_components/alert/alert.service';
-import * as ClassicEditor from '@ckeditor/ckeditor5-angular';
 import { fadeInAnimation, slideInOutAnimation } from '../../animation';
 
 @Component({
@@ -21,8 +20,6 @@ export class ArticleComponent implements OnInit {
   @Output() onSubmitForm: EventEmitter<any> = new EventEmitter();
 
   articleForm: FormGroup;
-
-  public Editor = ClassicEditor;
 
   constructor(
     private formBuilder: FormBuilder,

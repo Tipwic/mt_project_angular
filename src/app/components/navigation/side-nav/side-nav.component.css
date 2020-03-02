@@ -11,3 +11,11 @@ a:hover, a:active{
     display: inline-block;
     padding-left: 6px;
 }
+
+img {
+    border: 2px solid #212133;
+}
+
+.mat-nav-list {
+    background-color: #52585f !important;
+}

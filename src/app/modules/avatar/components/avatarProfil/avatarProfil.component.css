@@ -1,0 +1,39 @@
+mat-list-item {
+    height: auto !important;
+}
+
+.portraitImg {
+    height: 200px !important;
+    width: 200px !important;
+}
+
+.title-name{
+    font-size: 40px;
+    position: action-containerabsolute;
+    top: 1px;
+    left: 50px;
+}
+
+.action-container{
+    border-top: 2px solid #212529;
+    width: calc(100% + 32px);
+    padding: 10px;
+    margin-left: -16px;
+}
+
+.container {
+    padding: 0;
+    margin: 0;
+    display: flex; /* or inline-flex */
+    flex-flow: row wrap;
+    /* This aligns items to the end line on main-axis */
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+.id-avatar{
+    width: 70%;
+}
+.skill-chart{
+    width: 30%;
+}

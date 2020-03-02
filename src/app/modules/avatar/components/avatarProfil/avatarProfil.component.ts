@@ -7,10 +7,13 @@ import { AlertService } from '../../../../_shared/_components/alert/alert.servic
 
 import { flyInOutAnimation } from '.././../../../_shared/animation';
 
+import { ChartDataSets, ChartType, RadialChartOptions } from 'chart.js';
+import { Label } from 'ng2-charts';
+
 @Component({
   selector: 'app-avatarProfil',
   templateUrl: './avatarProfil.component.html',
-  styleUrls: ['./avatarProfil.component.sass'],
+  styleUrls: ['./avatarProfil.component.css'],
 
   animations: [flyInOutAnimation]
 })
@@ -20,6 +23,22 @@ export class AvatarProfilComponent implements OnInit {
   @Input()currentAvatar: any
 
   @Output()onUpdate = new EventEmitter();
+
+  public radarChartOptions: RadialChartOptions = {
+    responsive: true,
+  };
+  public radarChartLabels: Label[] = ['Magie', 'Constitution', 'Défense Phisique',
+    'Défense Magique', 'Force', 'Intelligence', 'Agilité'];
+
+  public radarChartData: ChartDataSets[] = [
+    { data: [10, 3, 5, 12, 4, 9, 6], label: 'Avatar Skill Analysis' }
+  ];
+  public radarChartType: ChartType = 'horizontalBar';
+  barChartLegend = true;
+  public chartColors: any[] = [
+    { 
+      backgroundColor:["#FF7360", "#6FC8CE", "#FAFFF2", "#FFFCC4", "#B9E8E0","#FF7360", "#6FC8CE" ]
+    }];
 
   constructor(
     private avatarProfilObs: AvatarProfilObs,

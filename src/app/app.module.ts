@@ -6,8 +6,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { ChartsModule } from 'ng2-charts';
 import { ToastrModule } from "ngx-toastr";
 import { MatCarouselModule } from '@ngmodule/material-carousel'
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-
 import { AngularMaterialModule } from './app-material.module'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -43,10 +41,8 @@ import {
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    CKEditorModule,
     HttpClientModule,
     LayoutModule,
-    ChartsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatCarouselModule.forRoot(),

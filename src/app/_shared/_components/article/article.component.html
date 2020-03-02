@@ -15,12 +15,12 @@
     </mat-card-actions>
 </mat-card>
 
-<div class="disbleScreen"></div>
+<div *ngIf="editAction" class="disbleScreen"></div>
 <div class="card m-3" *ngIf="editAction" [@slideInOutAnimation]>
-    <h5 class="card-header titleForm" >{{editAction}}</h5>
+    <h5 class="card-header titleForm">{{editAction}}</h5>
 
     <div class="card-body">
-        <textarea ng-ckeditor ng-model="text"></textarea>
+
         <form [formGroup]="articleForm">
             <div class="form-group">
                 <mat-form-field>
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group">
                 <mat-form-field>
-                    <textarea matInput placeholder="Content" formControlName="content"></textarea>
+                    <textarea rows="4" cols="500" matInput placeholder="Content" formControlName="content"></textarea>
                     <mat-error *ngIf="errorHandling('content', 'required')">Content is required</mat-error>
                 </mat-form-field>
             </div>
